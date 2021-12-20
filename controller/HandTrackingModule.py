@@ -114,37 +114,5 @@ class handDetector():
           cv2.circle(img, (x2, y2), r, (255, 0, 255), cv2.FILLED)
           cv2.circle(img, (cx, cy), r, (0, 0, 255), cv2.FILLED)
       length = math.hypot(x2-x1,y2-y1)
-      print(length)
+      # print(length)
       return length , img, [x1,x2,y1,y2,cx,cy]
-# def main():
-#     cap = cv2.VideoCapture(0)
-#     pTime = 0
-#     delecter = handDetector()
-#     while True:
-#         success, img = cap.read()
-
-
-#         img = delecter.findHands(img)
-#         # print(img)
-#         lmList, bbox = delecter.findPosition(img)
-#         if len(lmList) != 0:
-#           # delecter.fingerUp()
-#           delecter.findDistance(img)
-
-#         #fps
-#         cTime = time.time()
-#         fps = 1/(cTime-pTime)
-#         pTime = cTime
-#         # show fps on windown
-#         cv2.putText(img, str(int(fps)), (28,58), cv2.FONT_HERSHEY_PLAIN, 3, (255,8,8), 3)
-#         cv2.imshow("Migor",img)
-#         # no se thoat thoi vong lap  vo tan
-#         # hien thi khung hinh 1ms va an phim b de ket thuc
-#         if(cv2.waitKey(1) &  0xFF == ord("b")):
-#             break
-
-# if __name__ == "__main__":
-#     main()
-
-
-
