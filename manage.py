@@ -6,7 +6,9 @@ import time
 # parentdir = os.path.dirname(currentdir)
 # sys.path.append(parentdir) 
 def main():
-    # time_new = time.time()
     AIVirtualMouse.virtualMouse()
+
+        
+
 if __name__ == "__main__":
     main()
