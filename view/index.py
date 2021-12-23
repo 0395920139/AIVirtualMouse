@@ -5,8 +5,7 @@ sys.path.append(parentdir)
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
-from controller import AIVirtualMouse
-import globalVariable
+from controller import AIVirtualMouse,AiShowSlide
 
 
 # imgShow = None
@@ -44,11 +43,10 @@ class GUI:
     def Mouse(self):
         AIVirtualMouse.virtualMouse()
     def slideShow(self):
-        print(globalVariable.imgShow)
+        AiShowSlide.ShowSlide()
     def receive(self):
         pass
     def sendMessage(self):
         pass
  
 # create a GUI class object
-g = GUI()

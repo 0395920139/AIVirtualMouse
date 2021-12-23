@@ -6,8 +6,6 @@ import math
 import numpy as np
 import autopy
 from controller.HandTrackingModule import handDetector
-import matplotlib.pyplot as plt
-import globalVariable
 
 
 def virtualMouse():
@@ -93,6 +91,8 @@ def virtualMouse():
         # print(globalVariable.imgShow)
         # no se thoat thoi vong lap  vo tan
         # hien thi khung hinh 1ms va an phim b de ket thuc
+        if(cv2.waitKey(1) & 0xFF == ord('b')): # hiển thị khung hình động 1ms và ấn phím b để kết thúc
+            break
         if cv2.getWindowProperty('Migor',cv2.WND_PROP_VISIBLE) < 1:  
             cv2.destroyAllWindows()      
             break 

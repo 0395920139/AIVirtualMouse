@@ -5,11 +5,9 @@ import math
 import numpy as np
 import autopy
 from controller.HandTrackingModule import handDetector
-import matplotlib.pyplot as plt
-import globalVariable
 
 
-def virtualMouse():
+def ShowSlide():
     wCam, hCam = 640, 480
     frameR = 100
     smoothening = 7
@@ -65,22 +63,12 @@ def virtualMouse():
                     cv2.circle(img, (lineInfo[4], lineInfo[5]), 15, (0, 255, 0), cv2.FILLED)
                     autopy.mouse.click(autopy.mouse.Button.LEFT)
                     # time.sleep(0.5)
-            if finger[1] == 1 and finger[2] == 0 and finger[3] == 0 and finger[4] == 1:
-                autopy.mouse.click(autopy.mouse.Button.RIGHT)
-                cv2.circle(img, (x5, y5), 15, (255, 0, 255), cv2.FILLED)  
-                time.sleep(0.5)  
-            if finger[1] == 1 and finger[2] == 1 and finger[3] == 0 and finger[4] == 1 :
-                autopy.mouse.click(autopy.mouse.Button.MIDDLE)
-                # autopy.mouse.toggle(autopy.mouse.Button.LEFT, True)
-                cv2.circle(img, (x4, y4), 15, (255, 0, 255), cv2.FILLED)
+            if finger[1] == 1 and finger[2] == 1 and finger[3] == 1 and finger[4] == 1 :
+                autopy.key.tap(autopy.key.Code.LEFT_ARROW)
                 time.sleep(0.5)
-            if finger[1] == 1 and finger[2] == 1 and finger[3] == 1 and finger[4] == 0 :
-                autopy.mouse.toggle(autopy.mouse.Button.LEFT, True)
-                cv2.circle(img, (x4, y4), 15, (255, 0, 255), cv2.FILLED)
+            if finger[1] == 0 and finger[2] == 0 and finger[3] == 0 and finger[4] == 1 :
+                autopy.key.tap(autopy.key.Code.RIGHT_ARROW)
                 time.sleep(0.5)
-            # if finger[1] == 1 and finger[1] == 1 and finger[2] == 1 and finger[3] == 1 and finger[4] == 1 :
-            #     return "hello"    
-
         #fps
         cTime = time.time()
         fps = 1/(cTime-pTime)
@@ -88,10 +76,8 @@ def virtualMouse():
         # show fps on windown
         cv2.putText(img, str(int(fps)), (28,58), cv2.FONT_HERSHEY_PLAIN, 3, (255,8,8), 3)
         cv2.imshow("Migor",img)
-        # globalVariable.imgShow = img
-        # print(globalVariable.imgShow)
-        # no se thoat thoi vong lap  vo tan
-        # hien thi khung hinh 1ms va an phim b de ket thuc
+        if(cv2.waitKey(1) & 0xFF == ord('b')): # hiển thị khung hình động 1ms và ấn phím b để kết thúc
+            break
         if cv2.getWindowProperty('Migor',cv2.WND_PROP_VISIBLE) < 1:  
             cv2.destroyAllWindows()      
             break 
