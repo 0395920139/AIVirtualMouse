@@ -48,8 +48,6 @@ class handDetector():
         self.results = self.hands.process(imgRGB)
         # you have to create an object of mp_hands.Hands to get results
         # alternatively you could do: results = mp_hands.Hands().process(imgRGB)
-        
-
         # ''' results.multi_hand_landmarks return True '''
         if self.results.multi_hand_landmarks:
           for handLms in self.results.multi_hand_landmarks:

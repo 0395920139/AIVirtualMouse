@@ -1,0 +1,3 @@
+Trình bày về thuật toán nhận diện cử chỉ ?
+Tại sao lại sử dụng thuật toán này ?
+ưu điểm của thuật toán này là gì ?

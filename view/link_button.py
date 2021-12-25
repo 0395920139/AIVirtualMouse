@@ -74,18 +74,3 @@ class Link_Button(Button, object):
         if self._action:
             self._action()
 
-
-# if __name__ == "__main__":
-#     import webbrowser
-#     from tkinter import Tk, Frame    
-
-#     def callback():
-#         webbrowser.open_new(r"http://www.google.com")
-
-#     root = Tk()
-#     frame = Frame(root, bg="white")
-#     frame.pack(expand=True, fill="both")
-
-#     link = Link_Button(frame, text="Google Hyperlink", action=callback)
-#     link.pack(padx=10, pady=10)
-#     root.mainloop()

@@ -3,7 +3,7 @@ import os, sys
 currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir) 
-from controller import AIVirtualMouse,AiShowSlide
+from controller import AIVirtualMouse,AiShowSlide,AIVolume
 from tkinter import *
 # from tkinter.ttk import *
 from tkinter import ttk
@@ -46,12 +46,12 @@ class GUI:
         self.exit = Button(self.master, text="Exit", font=buttonFont,height = 1, 
           width = 10, relief="groove",command=Close)
         self.exit.place(relx=0.1, rely=0.8)
-        self.help = Button(self.master, text="Help", font=buttonFont,height = 1, 
+        self.help = Button(self.master, text="Info", font=buttonFont,height = 1, 
           width = 10, relief="groove",command=self.Help)
         self.help.place(relx=0.4, rely=0.8)
         def callback():
           webbrowser.open_new(r"https://www.youtube.com/watch?v=pecWJAeX1q4")
-        self.guide = link_button.Link_Button(self.master, text="Guide", action=callback,
+        self.guide = link_button.Link_Button(self.master, text="Help", action=callback,
                                       font=buttonFont,height = 1, width = 10, relief="groove")
         # self.guide = Button(self.master, text="Guide", font=buttonFont,height = 1, 
         #   width = 10, relief="groove")
@@ -100,7 +100,7 @@ class GUI:
                              pady = 5)
       self.textInfo.place(relx=0.05, rely=0.3)
       text1 = 'Migor Chương trình Chuột ảo đa năng miễn phí.\nMigor chạy trên tất cả các hệ điều hành Windows.\n'
-      text2 = "Các thành viên dự án Migor:\n \tNguyễn Văn Minh: Phát triển chính,Quản lý diễn đàn Migor\n\tNguyễn Văn Long: Designer\n\tNguyễn Văn Sơn : Docx"
+      text2 = "Các thành viên dự án Migor:\n \tNguyễn Văn Minh: Phát triển chính,Quản lý diễn đàn Migor\n\tNguyễn Văn Long: Designer\n\tPhan Hoàng Sơn : Docx"
       text3 = "\nTrang Web của dự án: \n\t https://www.facebook.com/Migor28\nDiễn đàn trợ giúp:\n\thttps://www.facebook.com/Minh.fullstack"
       text4 = "\nLiên lạc:\n\tNguyễn Văn Minh: Giám Đốc\n\tGmail : Minh2k3k4k@gmail.com\n\tPhone : 0328716036\n\tAddress : Công ty cổ phần Migor\n\t(Ngõ 147 Triều Khúc/ Triều Khúc\n\t/ Tân Triều/ Thanh Trì/Hà Nội)"
       message =text1 + text2 + text3 + text4
@@ -108,8 +108,6 @@ class GUI:
       self.textInfo.insert(END,message)
       self.textInfo.config(state = DISABLED)
       self.textInfo.see(END)
-
-        
     def Mouse(self):
       messagebox.showwarning("Warning", "Please wait 30s")
       try :
@@ -125,7 +123,7 @@ class GUI:
     def Volume(self):
       messagebox.showwarning("Warning", "Please wait 30s")
       try :
-        AiShowSlide.ShowSlide()
+        AIVolume.Volume()
       except :
         messagebox.showerror("Error", "No connect camera")
 
